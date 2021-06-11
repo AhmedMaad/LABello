@@ -2,7 +2,9 @@ package com.example.labello;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -53,6 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onCameraMove() {
                 lat = mMap.getCameraPosition().target.latitude;
                 lon = mMap.getCameraPosition().target.longitude;
+                Log.d("trace", "Send: " + lat + "," + lon);
             }
         });
 
@@ -60,6 +63,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void saveLocation(View view) {
         //send location back to patient activity
+        Intent intent = new Intent();
+        intent.putExtra("lat", lat);
+        intent.putExtra("lon", lon);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 }

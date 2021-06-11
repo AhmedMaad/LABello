@@ -14,6 +14,12 @@
         android:paddingTop="16dp"
         android:paddingEnd="16dp">
 
+        <ImageView
+            android:alpha="0.1"
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
