@@ -110,6 +110,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/ic_new_patient"
+        android:onClick="openPatientActivity"
         app:layout_constraintBottom_toBottomOf="@+id/newpatient"
         app:layout_constraintStart_toStartOf="parent" />
 

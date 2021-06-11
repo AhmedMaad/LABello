@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.labello.offers.OffersActivity;
+import com.example.labello.patient.PatientActivity;
 import com.example.labello.testslibrary.TestsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -38,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
-            return;
         }
 
 
@@ -47,17 +48,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
     public void openTestsLibrary(View view) {
         Intent i = new Intent(this, TestsActivity.class);
         startActivity(i);
     }
 
-
     public void openOffersActivity(View view) {
+        Intent i = new Intent(this, OffersActivity.class);
+        startActivity(i);
     }
+
+    public void openPatientActivity(View view) {
+        Intent i = new Intent(this, PatientActivity.class);
+        startActivity(i);
+    }
+
 }
