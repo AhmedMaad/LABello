@@ -30,9 +30,9 @@ public class TestsActivity extends AppCompatActivity {
         models.add(new TestsLibraryModel("Antigen (AG)", R.drawable.antigen));
         models.add(new TestsLibraryModel("Heart Test (HT)", R.drawable.heart));
         models.add(new TestsLibraryModel("Cardiac Test (ECG)", R.drawable.cardiac));
-        models.add(new TestsLibraryModel("Urine Test (UT)", R.drawable.urine));
+        models.add(new TestsLibraryModel("Urine Analysis Test (UAT)", R.drawable.urine));
         models.add(new TestsLibraryModel("Blood & Urine Test (BUT)", R.drawable.blood_urine));
-        models.add(new TestsLibraryModel("Fast Blood Glucode Level", R.drawable.glucose));
+        models.add(new TestsLibraryModel("Fast Blood Glucose Level", R.drawable.glucose));
 
         adapter = new TestsLibraryAdapter(this, models);
         RecyclerView rv = findViewById(R.id.rv);

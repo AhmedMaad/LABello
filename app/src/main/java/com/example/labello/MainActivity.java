@@ -58,4 +58,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void openOffersActivity(View view) {
+    }
 }

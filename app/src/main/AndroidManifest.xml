@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LABello">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".testslibrary.TestsActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".PatientActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".testslibrary.TestsActivity">
+        <activity android:name=".offers.OffersActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
