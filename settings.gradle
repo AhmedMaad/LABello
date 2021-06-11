@@ -1,0 +1,2 @@
+rootProject.name = "LABello"
+include ':app'

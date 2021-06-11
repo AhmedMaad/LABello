@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1022855812462",
+    "project_id": "labello-76420",
+    "storage_bucket": "labello-76420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022855812462:android:d9e4ab5b3397a8297f5d7f",
+        "android_client_info": {
+          "package_name": "com.example.labello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022855812462-ihtojkqfg4p572bap0u6ht2qn2lsfk24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACGkyX_zg_HjHXFbjfQbuHenazm1yqnic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022855812462-ihtojkqfg4p572bap0u6ht2qn2lsfk24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
