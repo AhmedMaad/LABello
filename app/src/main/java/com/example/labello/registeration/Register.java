@@ -1,4 +1,4 @@
-package com.example.labello;
+package com.example.labello.registeration;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.labello.R;
+import com.example.labello.registeration.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -60,8 +61,6 @@ public class Register extends Fragment {
 
             }
         });
-
-
 
         return root;
     }

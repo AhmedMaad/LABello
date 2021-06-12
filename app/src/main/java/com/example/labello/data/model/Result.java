@@ -1,4 +1,4 @@
-package com.example.labello.data;
+package com.example.labello.data.model;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.

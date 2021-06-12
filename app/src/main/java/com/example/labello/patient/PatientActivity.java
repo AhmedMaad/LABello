@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.example.labello.MapsActivity;
 import com.example.labello.R;
 
 public class PatientActivity extends AppCompatActivity

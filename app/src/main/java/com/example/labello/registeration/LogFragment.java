@@ -1,4 +1,4 @@
-package com.example.labello;
+package com.example.labello.registeration;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.labello.MainActivity;
+import com.example.labello.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -31,9 +33,8 @@ public class LogFragment extends Fragment {
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     EditText email, pass;
-    Button login , register ;
-    float v=0;
-
+    Button login;
+    float v = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,31 +43,21 @@ public class LogFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_log, container, false);
         email = root.findViewById(R.id.email);
         pass = root.findViewById(R.id.pass);
-        login =root.findViewById(R.id.login);
-        register = root.findViewById(R.id.register);
+        login = root.findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String Email = email.getText().toString() ;
+                String Email = email.getText().toString();
                 String Password = pass.getText().toString();
-                if (TextUtils.isEmpty(Email)){
+                if (TextUtils.isEmpty(Email)) {
                     email.setError("Please enter your e-mail");
-                }else if (TextUtils.isEmpty(Password)){
+                } else if (TextUtils.isEmpty(Password)) {
                     pass.setError("Please enter your password");
                 }
-                signIn(Email,Password);
+                signIn(Email, Password);
 
-            }
-        });
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Register register = new Register();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.beginTransaction().replace(R.id.fragment_container,register).addToBackStack(null).commit();
             }
         });
 
@@ -81,25 +72,24 @@ public class LogFragment extends Fragment {
         pass.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400);
         login.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400);
 
-        return root ;
+        return root;
     }
-    public void signIn(String email, String password){
-        firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+    public void signIn(String email, String password) {
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
-                }else{
-                    String errpr = task.getException().getLocalizedMessage().toString();
+                } else {
+                    String error = task.getException().getLocalizedMessage().toString();
                 }
             }
         });
 
 
     }
-
-
 
 
 }

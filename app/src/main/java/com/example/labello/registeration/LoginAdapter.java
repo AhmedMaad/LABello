@@ -1,4 +1,4 @@
-package com.example.labello;
+package com.example.labello.registeration;
 
 import android.content.Context;
 

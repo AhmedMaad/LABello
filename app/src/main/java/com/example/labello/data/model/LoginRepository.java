@@ -1,6 +1,4 @@
-package com.example.labello.data;
-
-import com.example.labello.data.model.LoggedInUser;
+package com.example.labello.data.model;
 
 /**
  * Class that requests authentication and user information from the remote data source and

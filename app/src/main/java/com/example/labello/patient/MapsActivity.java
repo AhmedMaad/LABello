@@ -1,4 +1,4 @@
-package com.example.labello;
+package com.example.labello.patient;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.labello.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
