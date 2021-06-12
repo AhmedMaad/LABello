@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.labello.MainActivity;
 import com.example.labello.R;
+import com.example.labello.utils.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -80,8 +81,10 @@ public class LogFragment extends Fragment {
             @Override
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    Constants.USER_ID = task.getResult().getUser().getUid();
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
+                    getActivity().finish();
                 } else {
                     String error = task.getException().getLocalizedMessage().toString();
                 }
