@@ -16,6 +16,8 @@ public class Customer {
         this.profilePicture = profilePicture;
     }
 
+    public Customer(){}
+
     public String getUserID() {
         return userID;
     }

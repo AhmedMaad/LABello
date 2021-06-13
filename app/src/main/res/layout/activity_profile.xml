@@ -5,13 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFEFF1"
-    tools:context=".offers.OffersActivity">
+    tools:context=".profile.ProfileActivity">
 
     <View
         android:id="@+id/v"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="280dp"
         android:background="#29367E"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:onClick="updateProfile"
+        android:src="@drawable/ic_save"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
@@ -31,14 +40,15 @@
             android:padding="16dp">
 
             <ImageView
+                android:src="#EFEFF1"
                 android:id="@+id/iv_profile"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
+                android:onClick="choosePicture" />
 
             <EditText
-                android:id="@+id/tv_name"
+                android:id="@+id/et_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -46,13 +56,6 @@
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:hint="Your username"
-                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tv_phone"

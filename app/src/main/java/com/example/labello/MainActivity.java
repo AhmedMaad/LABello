@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 
 import com.example.labello.offers.OffersActivity;
 import com.example.labello.patient.PatientActivity;
+import com.example.labello.profile.ProfileActivity;
 import com.example.labello.registeration.LoginActivity;
 import com.example.labello.testslibrary.TestsActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openProfileActivity(View view) {
-
+        Intent i = new Intent(this, ProfileActivity.class);
+        startActivity(i);
     }
 
 
