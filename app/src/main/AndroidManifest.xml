@@ -30,13 +30,13 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".patient.MapsActivity"
+            android:name=".branch.MapsActivity"
             android:label="@string/title_activity_maps"/>
         <activity android:name=".testslibrary.TestsActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".offers.OffersActivity" />
-        <activity android:name=".patient.PatientActivity" />
-        <activity android:name=".registeration.LoginActivity">
+        <activity android:name=".registeration.LoginActivity" />
+        <activity android:name=".patient.PatientActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

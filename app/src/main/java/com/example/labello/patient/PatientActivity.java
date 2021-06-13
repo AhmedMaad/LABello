@@ -5,14 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.labello.R;
+import com.example.labello.branch.BranchModel;
+import com.example.labello.branch.MapsActivity;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class PatientActivity extends AppCompatActivity
         implements DatePickerDialog.OnDateSetListener {
@@ -26,6 +36,8 @@ public class PatientActivity extends AppCompatActivity
     private double lat;
     private double lon;
     private String birthDate;
+    private String chosenDepartment;
+    private ArrayList<BranchModel> sortedBranches = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +67,62 @@ public class PatientActivity extends AppCompatActivity
             lat = data.getDoubleExtra("lat", 0.0);
             lon = data.getDoubleExtra("lon", 0.0);
             Log.d("trace", "Retrieved: " + lat + "," + lon);
+            //sort branches according to nearest
+            sortBranches();
         }
+    }
+
+    private void sortBranches(){
+
+        ArrayList<BranchModel> branches = new ArrayList<>();
+        branches.add(new BranchModel(29.9602, 31.2569, "Maadi"));
+        branches.add(new BranchModel(30.0395, 31.2025, "Dokki"));
+        branches.add(new BranchModel(29.8403, 31.2982, "Helwan"));
+        branches.add(new BranchModel(30.0131, 31.2089, "Giza"));
+        branches.add(new BranchModel(30.0511, 31.2126, "Agouza"));
+
+        Location chosenLocation = new Location(LocationManager.GPS_PROVIDER);
+        chosenLocation.setLatitude(lat);
+        chosenLocation.setLongitude(lon);
+        sortedBranches.clear();
+        //Calculating all distances in meters based on selected user location
+        for (int i = 0; i< branches.size(); ++i){
+            Location branchLocation = new Location(LocationManager.GPS_PROVIDER);
+            branchLocation.setLatitude(branches.get(i).getLatitude());
+            branchLocation.setLongitude(branches.get(i).getLongitude());
+            float calculatedDistance = chosenLocation.distanceTo(branchLocation);
+            sortedBranches.add(new BranchModel(branches.get(i).getName(), calculatedDistance));
+        }
+        Collections.sort(sortedBranches);
+        showSpinner();
+    }
+
+    private void showSpinner(){
+
+        Spinner locationSpinner = findViewById(R.id.spinner);
+        locationSpinner.setVisibility(View.VISIBLE);
+
+        ArrayList<String> names = new ArrayList<>();
+        for (BranchModel x: sortedBranches)
+            names.add(x.getName());
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, names);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        locationSpinner.setAdapter(adapter);
+
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                chosenDepartment = names.get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     public void chooseBirthdate(View view) {

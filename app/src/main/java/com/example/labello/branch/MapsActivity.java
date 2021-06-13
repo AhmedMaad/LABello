@@ -1,4 +1,4 @@
-package com.example.labello.patient;
+package com.example.labello.branch;
 
 import androidx.fragment.app.FragmentActivity;
 
