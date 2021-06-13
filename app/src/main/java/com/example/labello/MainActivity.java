@@ -64,4 +64,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void openProfileActivity(View view) {
+
+    }
+
+
 }

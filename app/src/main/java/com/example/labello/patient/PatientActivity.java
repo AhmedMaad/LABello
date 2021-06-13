@@ -157,7 +157,7 @@ public class PatientActivity extends AppCompatActivity
         int year = now.get(Calendar.YEAR);
         int month = now.get(Calendar.MONTH) + 1;
         int day = now.get(Calendar.DAY_OF_MONTH);
-        String registerDate = "image: " + day + '-' + month + '-' + year;
+        String registerDate = day + "-" + month + '-' + year;
 
         PatientModel patient = new PatientModel(Constants.USER_ID, "", fName
                 , mName, sName, phone, desc, age, birthDate, chosenBranch, registerDate);
