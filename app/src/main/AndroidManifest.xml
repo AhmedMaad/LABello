@@ -35,8 +35,8 @@
         <activity android:name=".testslibrary.TestsActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".offers.OffersActivity" />
-        <activity android:name=".registeration.LoginActivity" />
-        <activity android:name=".patient.PatientActivity">
+        <activity android:name=".patient.PatientActivity" />
+        <activity android:name=".registeration.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

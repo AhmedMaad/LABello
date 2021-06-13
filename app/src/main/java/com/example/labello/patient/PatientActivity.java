@@ -16,12 +16,18 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.labello.R;
 import com.example.labello.branch.BranchModel;
 import com.example.labello.branch.MapsActivity;
+import com.example.labello.utils.Constants;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 
 public class PatientActivity extends AppCompatActivity
@@ -36,7 +42,7 @@ public class PatientActivity extends AppCompatActivity
     private double lat;
     private double lon;
     private String birthDate;
-    private String chosenDepartment;
+    private String chosenBranch;
     private ArrayList<BranchModel> sortedBranches = new ArrayList<>();
 
     @Override
@@ -72,7 +78,7 @@ public class PatientActivity extends AppCompatActivity
         }
     }
 
-    private void sortBranches(){
+    private void sortBranches() {
 
         ArrayList<BranchModel> branches = new ArrayList<>();
         branches.add(new BranchModel(29.9602, 31.2569, "Maadi"));
@@ -86,7 +92,7 @@ public class PatientActivity extends AppCompatActivity
         chosenLocation.setLongitude(lon);
         sortedBranches.clear();
         //Calculating all distances in meters based on selected user location
-        for (int i = 0; i< branches.size(); ++i){
+        for (int i = 0; i < branches.size(); ++i) {
             Location branchLocation = new Location(LocationManager.GPS_PROVIDER);
             branchLocation.setLatitude(branches.get(i).getLatitude());
             branchLocation.setLongitude(branches.get(i).getLongitude());
@@ -97,13 +103,13 @@ public class PatientActivity extends AppCompatActivity
         showSpinner();
     }
 
-    private void showSpinner(){
+    private void showSpinner() {
 
         Spinner locationSpinner = findViewById(R.id.spinner);
         locationSpinner.setVisibility(View.VISIBLE);
 
         ArrayList<String> names = new ArrayList<>();
-        for (BranchModel x: sortedBranches)
+        for (BranchModel x : sortedBranches)
             names.add(x.getName());
 
         ArrayAdapter<String> adapter =
@@ -116,7 +122,7 @@ public class PatientActivity extends AppCompatActivity
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                chosenDepartment = names.get(position);
+                chosenBranch = names.get(position);
             }
 
             @Override
@@ -139,8 +145,40 @@ public class PatientActivity extends AppCompatActivity
     }
 
     public void addPatient(View view) {
-    }
 
-    //TODO: Calculate register date when uploading to firebase
+        String fName = etFirst.getText().toString();
+        String mName = etMiddle.getText().toString();
+        String sName = etSur.getText().toString();
+        String phone = etPhone.getText().toString();
+        String desc = etDesc.getText().toString();
+        int age = Integer.parseInt(etAge.getText().toString());
+
+        Calendar now = Calendar.getInstance();
+        int year = now.get(Calendar.YEAR);
+        int month = now.get(Calendar.MONTH) + 1;
+        int day = now.get(Calendar.DAY_OF_MONTH);
+        String registerDate = "image: " + day + '-' + month + '-' + year;
+
+        PatientModel patient = new PatientModel(Constants.USER_ID, "", fName
+                , mName, sName, phone, desc, age, birthDate, chosenBranch, registerDate);
+
+        FirebaseFirestore.getInstance().collection("patients")
+                .add(patient)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        documentReference.update("userID", documentReference.getId())
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(PatientActivity.this
+                                                , "Patient Added", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
+                                });
+                    }
+                });
+
+    }
 
 }
