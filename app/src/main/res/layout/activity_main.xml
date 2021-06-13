@@ -121,6 +121,7 @@
         android:layout_height="74dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/ic_test_results"
+        android:onClick="openTestsResult"
         app:layout_constraintBottom_toBottomOf="@+id/testresults"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"

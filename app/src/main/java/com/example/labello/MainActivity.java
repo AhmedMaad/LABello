@@ -13,6 +13,7 @@ import com.example.labello.patient.PatientActivity;
 import com.example.labello.profile.ProfileActivity;
 import com.example.labello.registeration.LoginActivity;
 import com.example.labello.testslibrary.TestsActivity;
+import com.example.labello.testsresult.TestsResultActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -70,5 +71,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+
+    public void openTestsResult(View view) {
+        Intent i = new Intent(this, TestsResultActivity.class);
+        startActivity(i);
+    }
 
 }
