@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btnotify;
     ImageButton btnprof;
     ImageButton btnoffer;
-    ImageButton btnpat;
     ImageButton btnlib;
     ImageButton btnres;
 
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         btnprof = findViewById(R.id.profile);
         btnotify = findViewById(R.id.notificationimg);
         btnoffer = findViewById(R.id.offersimg);
-        btnpat = findViewById(R.id.patientimg);
         btnlib = findViewById(R.id.testlibraryimg);
         btnres = findViewById(R.id.testresultsimg);
 
@@ -44,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
-
-        //  LoginAdapter loginAdapter = new LoginAdapter(getSupportFragmentManager());
-
 
     }
 
@@ -58,11 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void openOffersActivity(View view) {
         Intent i = new Intent(this, OffersActivity.class);
-        startActivity(i);
-    }
-
-    public void openPatientActivity(View view) {
-        Intent i = new Intent(this, PatientActivity.class);
         startActivity(i);
     }
 

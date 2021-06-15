@@ -14,10 +14,11 @@ public class PatientModel {
     private String birthdate;
     private String branch;
     private String registerDate;
+    private String testName;
 
     public PatientModel(String customerID, String userID, String fName, String mName
             , String sName, String phoneNo, String medicalDesc, int age
-            , String birthdate, String branch, String registerDate) {
+            , String birthdate, String branch, String registerDate, String testName) {
         this.customerID = customerID;
         this.userID = userID;
         this.fName = fName;
@@ -29,6 +30,7 @@ public class PatientModel {
         this.birthdate = birthdate;
         this.branch = branch;
         this.registerDate = registerDate;
+        this.testName = testName;
     }
 
     public PatientModel(){
@@ -76,5 +78,9 @@ public class PatientModel {
 
     public String getRegisterDate() {
         return registerDate;
+    }
+
+    public String getTestName() {
+        return testName;
     }
 }

@@ -3,6 +3,7 @@ package com.example.labello.testsresult;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,11 +37,21 @@ public class TestsResultAdapter extends RecyclerView.Adapter<TestsResultAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull TestsResultAdapter.MVH holder, int position) {
-        holder.textView.setText(
+        holder.tvPatientName.setText(
                 patients.get(position).getfName() + " " +
                         patients.get(position).getmName() + " " +
                         patients.get(position).getsName()
         );
+        holder.tvTestName.setText(patients.get(position).getTestName());
+        if (position % 2 == 0) {
+            holder.tvStatus.setText("ready");
+            holder.tvStatus.setTextColor(activity.getResources().getColor(android.R.color.holo_green_dark));
+            holder.image.setVisibility(View.VISIBLE);
+            holder.image.setImageResource(R.drawable.test_result);
+        } else {
+            holder.tvStatus.setText("pending");
+        }
+
     }
 
     @Override
@@ -50,11 +61,17 @@ public class TestsResultAdapter extends RecyclerView.Adapter<TestsResultAdapter.
 
     public class MVH extends RecyclerView.ViewHolder {
 
-        private TextView textView;
+        private TextView tvPatientName;
+        private TextView tvStatus;
+        private TextView tvTestName;
+        private ImageView image;
 
         public MVH(@NonNull @NotNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tv);
+            tvPatientName = itemView.findViewById(R.id.tv_name);
+            tvStatus = itemView.findViewById(R.id.tv_status);
+            tvTestName = itemView.findViewById(R.id.tv_test_name);
+            image = itemView.findViewById(R.id.iv_test);
         }
     }
 

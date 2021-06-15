@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1022855812462",
-    "project_id": "labello-76420",
-    "storage_bucket": "labello-76420.appspot.com"
+    "project_number": "161605839401",
+    "project_id": "labello-aalaa",
+    "storage_bucket": "labello-aalaa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1022855812462:android:d9e4ab5b3397a8297f5d7f",
+        "mobilesdk_app_id": "1:161605839401:android:2f5152c7faebf849024a38",
         "android_client_info": {
           "package_name": "com.example.labello"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1022855812462-ihtojkqfg4p572bap0u6ht2qn2lsfk24.apps.googleusercontent.com",
+          "client_id": "161605839401-i71a6nk80e9csi6v81krgibe6sj8fqa8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyACGkyX_zg_HjHXFbjfQbuHenazm1yqnic"
+          "current_key": "AIzaSyAiessJ8UTMn4XTgllPrYhRQG0C0Y53ovI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1022855812462-ihtojkqfg4p572bap0u6ht2qn2lsfk24.apps.googleusercontent.com",
+              "client_id": "161605839401-i71a6nk80e9csi6v81krgibe6sj8fqa8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

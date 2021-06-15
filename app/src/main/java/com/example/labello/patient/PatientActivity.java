@@ -160,7 +160,8 @@ public class PatientActivity extends AppCompatActivity
         String registerDate = day + "-" + month + '-' + year;
 
         PatientModel patient = new PatientModel(Constants.USER_ID, "", fName
-                , mName, sName, phone, desc, age, birthDate, chosenBranch, registerDate);
+                , mName, sName, phone, desc, age, birthDate, chosenBranch, registerDate
+                , getIntent().getStringExtra("name"));
 
         FirebaseFirestore.getInstance().collection("patients")
                 .add(patient)
