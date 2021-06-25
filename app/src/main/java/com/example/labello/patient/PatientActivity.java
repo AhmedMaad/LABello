@@ -81,11 +81,12 @@ public class PatientActivity extends AppCompatActivity
     private void sortBranches() {
 
         ArrayList<BranchModel> branches = new ArrayList<>();
-        branches.add(new BranchModel(29.9602, 31.2569, "Maadi"));
-        branches.add(new BranchModel(30.0395, 31.2025, "Dokki"));
-        branches.add(new BranchModel(29.8403, 31.2982, "Helwan"));
-        branches.add(new BranchModel(30.0131, 31.2089, "Giza"));
-        branches.add(new BranchModel(30.0511, 31.2126, "Agouza"));
+        branches.add(new BranchModel(29.993582, 31.306749, "معمل تحاليل الحمد دار الصحة كلينيك"));
+        branches.add(new BranchModel(30.012794, 31.300057, "Cairo Clinical Lab"));
+        branches.add(new BranchModel(29.961488, 31.304749, "Prime Lab"));
+        branches.add(new BranchModel(30.007576, 31.3327, "معمل بيتا لاب للتحاليل الطبيه"));
+        branches.add(new BranchModel(29.974437, 31.251728, "معامل كيرلاب للتحاليل الطبية"));
+        branches.add(new BranchModel(29.970812, 31.250482, "معمل النخيل للتحاليل الطبية"));
 
         Location chosenLocation = new Location(LocationManager.GPS_PROVIDER);
         chosenLocation.setLatitude(lat);
@@ -109,8 +110,9 @@ public class PatientActivity extends AppCompatActivity
         locationSpinner.setVisibility(View.VISIBLE);
 
         ArrayList<String> names = new ArrayList<>();
-        for (BranchModel x : sortedBranches)
-            names.add(x.getName());
+
+        names.add(sortedBranches.get(0).getName());
+        names.add(sortedBranches.get(1).getName());
 
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, names);
